@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block title %}
+    blog edit {{ blog.id }}
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="col-10" style="background-color: goldenrod; margin-top: 40px; position: relative">
+                <div class="row justify-content-md-center">
+                    <div class="col-10" style=" margin: 50px">
+                        {% bootstrap_form form %}
+                    </div>
+                </div>
+                {% buttons %}
+                    <button type="submit" name="save_blog" value="{{ blog.id }}"
+                            class="btn btn-primary offset-md-1"
+                            style="position: absolute; bottom: 20px; right: 20px;">
+                        Save
+                    </button>
+                {% endbuttons %}
+            </div>
+        </div>
+    </form>
+{% endblock %}
